@@ -5,17 +5,17 @@ import com.kaji17.core.dto.AdministratorInfoDto;
 import com.kaji17.core.dto.ChangePasswordDto;
 import com.kaji17.core.dto.LoginDto;
 import com.kaji17.core.entities.Administrator;
-import com.kaji17.core.entities.Customer;
 import com.kaji17.core.logics.AdministratorLogic;
 import io.swagger.v3.oas.annotations.Operation;
-import jakarta.security.auth.message.AuthException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
+/**
+ * @author katina
+ */
 @RestController
 @RequiredArgsConstructor
 @Slf4j
@@ -70,7 +70,14 @@ public class AdministratorControllers {
         return ResponseEntity.ok().body(administratorLogic.updateAdministrator(administratorid,administratorInfodto));
     }
 
-    @Operation(summary = "Modifier le mot de passe d'un adminsitrateur administrateur")
+    /**
+     * Modifies the password of an existing administrator in the system.
+     *
+     * @param changePasswordDto The DTO containing the new password information for the administrator.
+     * @param administratorid The unique identifier of the administrator whose password is to be updated.
+     * @return ResponseEntity containing the updated administrator with the new password, with a status HTTP 200 (OK).
+     */
+    @Operation(summary = "Modifier le mot de passe d'un adminsitrateur")
     @PutMapping(value = "/update-password/{administratorid}")
     public ResponseEntity<Administrator> updateAdministrateurPassword(@RequestBody ChangePasswordDto changePasswordDto, @PathVariable Integer administratorid) {
         log.warn("[*] Starting updating administrator password :: changePasswordObject = {}, administratorid={}", changePasswordDto,administratorid);
@@ -92,7 +99,13 @@ public class AdministratorControllers {
         return ResponseEntity.ok().build();
     }
 
-    @Operation(summary = "connexion d'un administrateur")
+    /**
+     * This method is used to sign in an administrator. It takes a LoginDto object as input, which contains the administrator's login credentials. The method then calls the signinAdministrator method of the AdministratorLogic class, passing the LoginDto object as a parameter. The method returns a ResponseEntity containing the Administrator object representing the signed-in administrator, with a status HTTP 200 (OK).
+     *
+     * @param loginDto The LoginDto object containing the administrator's login credentials.
+     * @return A ResponseEntity containing the Administrator object representing the signed-in administrator, with a status HTTP 200 (OK).
+     */
+    @Operation(summary = "Connexion d'un administrateur")
     @PostMapping(value = "/signin-administrator")
     public ResponseEntity<Administrator> signinAdministrator(@RequestBody LoginDto loginDto){
         log.warn("[*] Starting login administrator :: loginDto = {}", loginDto);

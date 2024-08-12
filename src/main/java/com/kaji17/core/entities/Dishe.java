@@ -8,6 +8,9 @@ import java.io.Serial;
 import java.io.Serializable;
 import java.util.List;
 
+/**
+ * @author katina
+ */
 @Setter
 @Getter
 @ToString

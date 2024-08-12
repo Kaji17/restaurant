@@ -1,14 +1,18 @@
 package com.kaji17.core.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.*;
-import lombok.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Embeddable;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-import java.io.Serial;
 import java.io.Serializable;
-import java.util.List;
 import java.util.Objects;
 
+/**
+ * @author katina
+ */
 @Embeddable
 @NoArgsConstructor
 @AllArgsConstructor

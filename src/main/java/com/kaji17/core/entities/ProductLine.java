@@ -7,6 +7,9 @@ import lombok.*;
 import java.io.Serial;
 import java.io.Serializable;
 
+/**
+ * @author katina
+ */
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter

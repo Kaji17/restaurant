@@ -12,7 +12,6 @@ import com.kaji17.core.exceptions.ResourceAlreadyExistsException;
 import com.kaji17.core.exceptions.ResourceNotFoundException;
 import com.kaji17.core.tools.EncryptTools;
 import com.kaji17.core.validators.ObjectsValidator;
-import jakarta.security.auth.message.AuthException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.PageRequest;
@@ -22,6 +21,9 @@ import org.springframework.stereotype.Service;
 import java.util.Objects;
 import java.util.Optional;
 
+/**
+ * @author katina
+ */
 @Service
 @RequiredArgsConstructor
 @Slf4j
@@ -32,6 +34,7 @@ public class AdministratorLogicImpl implements AdministratorLogic {
     private final ObjectsValidator<AdministratorDto> validatorAdministratorDto;
 
     private final ObjectsValidator<ChangePasswordDto> validatorChangePasswordDto;
+
     private final ObjectsValidator<AdministratorInfoDto> validatorAdministratorInfoDto;
 
     private final EncryptTools encryptTools;
@@ -151,7 +154,7 @@ public class AdministratorLogicImpl implements AdministratorLogic {
     }
 
     @Override
-    public Administrator signinAdministrator(LoginDto loginDto){
+    public Administrator signinAdministrator(LoginDto loginDto) {
         // Vérifying email format
         if (Boolean.FALSE.equals(validatorAdministratorDto.isValideEmail(loginDto.getEmail())))
             throw new BadRequestException("Veuillez saisir un email valide");

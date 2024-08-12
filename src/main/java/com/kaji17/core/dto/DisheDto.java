@@ -2,7 +2,9 @@ package com.kaji17.core.dto;
 
 import lombok.*;
 
-
+/**
+ * @author katina
+ */
 @Data
 @Getter
 @Setter

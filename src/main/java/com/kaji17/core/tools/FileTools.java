@@ -54,20 +54,4 @@ public class FileTools{
             throw new InternalServerException("Une erreur est survenue");
         }
     }
-
-    public void isValid(MultipartFile[] files) {
-
-        Arrays.asList(files).forEach(file -> {
-            if(!isSupportedContentType(Objects.requireNonNull(file.getContentType()))){
-                log.info("Format d'image non autorisé :: originalFilename= {} :: contentType={}", file.getOriginalFilename(), file.getContentType());
-                throw new BadRequestException("Le format du fichier "+file.getOriginalFilename()+" n'est pas autorisé");
-            }
-        });
-    }
-
-    private boolean isSupportedContentType(String contentType) {
-        return  contentType.equals("image/png")
-                || contentType.equals("image/jpg")
-                || contentType.equals("image/jpeg");
-    }
 }

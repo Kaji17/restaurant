@@ -10,7 +10,6 @@ import com.kaji17.core.exceptions.ResourceAlreadyExistsException;
 import com.kaji17.core.exceptions.ResourceNotFoundException;
 import com.kaji17.core.tools.EncryptTools;
 import com.kaji17.core.validators.ObjectsValidator;
-import jakarta.security.auth.message.AuthException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.PageRequest;
@@ -19,6 +18,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.Objects;
 
+/**
+ * @author katina
+ */
 @Service
 @Slf4j
 @RequiredArgsConstructor

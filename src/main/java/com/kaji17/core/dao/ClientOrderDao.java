@@ -5,6 +5,9 @@ import com.kaji17.core.entities.ClientOrder;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+/**
+ * @author katina
+ */
 @Repository
 public interface ClientOrderDao extends JpaRepository<ClientOrder, Integer> {
     ClientOrder findByClientorderid(Integer orderid);

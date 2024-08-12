@@ -1,7 +1,6 @@
 package com.kaji17.core.logics;
 
 import com.kaji17.core.dao.DisheCategoryDao;
-import com.kaji17.core.entities.Administrator;
 import com.kaji17.core.entities.DisheCategory;
 import com.kaji17.core.exceptions.InternalServerException;
 import com.kaji17.core.exceptions.ResourceAlreadyExistsException;
@@ -14,6 +13,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.Objects;
 
+/**
+ * @author katina
+ */
 @Service
 @Slf4j
 @RequiredArgsConstructor
@@ -32,7 +34,7 @@ public class CategoryDisheLogicImpl implements CategoryDisheLogic {
             DisheCategory result = disheCategoryDao.save(disheCategory);
             log.info("Dish categorie save sucessfull :{}", result);
             return result;
-        }catch (Exception e) {
+        } catch (Exception e) {
             log.error("Une erreur s'est produite lors de l'enregistrement de la catégorie de plat :: errror: {}", e.getMessage());
             throw new InternalServerException("Une erreur s'est produite lors de l'enregistrement de la catégorie de plat");
         }
@@ -41,15 +43,15 @@ public class CategoryDisheLogicImpl implements CategoryDisheLogic {
     @Override
     public Object getCategoryDishe(Boolean pagination, Integer page, Integer size) {
         try {
-            if (Boolean.TRUE.equals(pagination)){
+            if (Boolean.TRUE.equals(pagination)) {
                 Pageable pageable = PageRequest.of(page, size);
                 log.debug("Getting dish categorie whith pagination ");
                 return disheCategoryDao.findAll(pageable);
-            }else {
+            } else {
                 log.debug("Getting administrator whitout pagination ");
                 return disheCategoryDao.findAll();
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             log.error("Une erreur s'est produite lors de la récupération des catégorie de plat :: errror: {}", e.getMessage());
             throw new InternalServerException("Une erreur s'est produite lors de la récupération des catégorie de plat");
         }
@@ -60,10 +62,10 @@ public class CategoryDisheLogicImpl implements CategoryDisheLogic {
         DisheCategory disheCategory = disheCategoryDao.findByDishecategoryid(categoriedishid);
         if (Objects.isNull(disheCategory))
             throw new ResourceNotFoundException("Cette catégorie de plat n'existe pas");
-        try{
+        try {
             disheCategoryDao.delete(disheCategory);
-            log.info("Dishcategory {} deleted with success",disheCategory.getName());
-        }catch (Exception e){
+            log.info("Dishcategory {} deleted with success", disheCategory.getName());
+        } catch (Exception e) {
             log.error("Une erreur s'est produite lors de la supression de la categorie de plat :: errror: {}", e.getMessage());
             throw new InternalServerException("Une erreur s'est produite lors de la categorie de plat");
         }

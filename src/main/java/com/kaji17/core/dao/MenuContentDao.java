@@ -8,6 +8,9 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/**
+ * @author katina
+ */
 @Repository
 public interface MenuContentDao extends JpaRepository<MenuContent, Integer> {
     List<MenuContent> findByMenu(Menu element);

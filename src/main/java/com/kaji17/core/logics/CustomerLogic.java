@@ -7,8 +7,12 @@ import com.kaji17.core.entities.Menu;
 import com.kaji17.core.exceptions.BadRequestException;
 import com.kaji17.core.exceptions.InternalServerException;
 import com.kaji17.core.exceptions.ResourceAlreadyExistsException;
+import com.kaji17.core.exceptions.ResourceNotFoundException;
 import jakarta.security.auth.message.AuthException;
 
+/**
+ * @author katina
+ */
 public interface CustomerLogic {
 
     /**
@@ -46,5 +50,12 @@ public interface CustomerLogic {
      */
     Customer signinCustomer(LoginDto loginDto);
 
+    /**
+     * This method is used to find a customer by their unique identifier.
+     *
+     * @param customerid The unique identifier of the customer to be found.
+     * @return The customer object if found, otherwise null.
+     * @throws ResourceNotFoundException If the customer with the given id is not found in the database.
+     */
     Customer findCustomerById(Integer customerid);
 }

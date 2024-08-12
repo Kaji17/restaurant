@@ -9,7 +9,9 @@ import java.io.Serial;
 import java.io.Serializable;
 import java.util.Date;
 
-
+/**
+ * @author katina
+ */
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter

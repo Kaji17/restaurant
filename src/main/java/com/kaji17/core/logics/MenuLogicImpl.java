@@ -21,6 +21,9 @@ import org.springframework.stereotype.Service;
 import java.util.Objects;
 import java.util.Optional;
 
+/**
+ * @author katina
+ */
 @Service
 @Slf4j
 @RequiredArgsConstructor
@@ -31,7 +34,6 @@ public class MenuLogicImpl implements MenuLogic {
     private final MenuDao menuDao;
     private final DisheDao disheDao;
     private final MenuContentDao menuContentDao;
-    private final DisheLogic disheLogic;
 
     @Override
     public Menu addMenu(MenuDto menudto) {
@@ -153,14 +155,4 @@ public class MenuLogicImpl implements MenuLogic {
             throw new InternalServerException("Une erreur s'est produite lors de l'assignation du menu au plat");
         }
     }
-
-   /* private void deleteMenuContent(Menu menu, Dishe dishe){
-        MenuContent menuContent = menuContentDao.findByMenuAndDishe(menu, dishe);
-        if (Objects.nonNull(menuContent)) {
-            menuContentDao.delete(menuContent);
-            log.info("Menu content {} deleted with success",menuContentId);
-        } else {
-            log.warn("Menu content {} not found", menuContentId);
-        }
-    }*/
 }

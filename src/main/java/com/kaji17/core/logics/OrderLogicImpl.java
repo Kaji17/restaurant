@@ -18,10 +18,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * @author katina
+ */
 @Service
 @RequiredArgsConstructor
 @Slf4j
-public class OrderLogicImpl implements OrderLogic{
+public class OrderLogicImpl implements OrderLogic {
     private final ObjectsValidator<OrderDto> validatorOrderDto;
     private final CustomerDao customerDao;
     private final MenuContentDao menuContentDao;
@@ -38,7 +41,7 @@ public class OrderLogicImpl implements OrderLogic{
         ClientOrder clientOrder = new ClientOrder();
 
         List<ProductLine> productLinesTab = new ArrayList<>();
-        try{
+        try {
             clientOrder.setCustomer(customerById);
             clientOrder.setStatus(Statut.PENDING.getLibelle());
             clientOrder.setProductLines(null);
@@ -47,7 +50,7 @@ public class OrderLogicImpl implements OrderLogic{
             clientOrder = clientOrderDao.save(clientOrder);
 
             log.info("Order created with success {}", clientOrder);
-        }catch (Exception e){
+        } catch (Exception e) {
             log.error("Une erreur s'est produite lors de l'initialisation de la commande :: error={}", e.getMessage());
             throw new InternalServerException("Une erreur s'est produite lors de l'initialisation de la commande");
         }
@@ -84,7 +87,7 @@ public class OrderLogicImpl implements OrderLogic{
         clientOrder.setProductLines(productLinesTab);
         try {
             return clientOrderDao.save(clientOrder);
-        }catch (Exception e) {
+        } catch (Exception e) {
             log.error("Une erreur s'est produite lors de l'ajout de la commande :: error={}", e.getMessage());
             throw new InternalServerException("Une erreur s'est produite lors de l'ajout de la commande");
         }
@@ -93,15 +96,15 @@ public class OrderLogicImpl implements OrderLogic{
     @Override
     public Object getOrders(Boolean pagination, Integer page, Integer size, Boolean status) {
         try {
-            if (Boolean.TRUE.equals(pagination)){
+            if (Boolean.TRUE.equals(pagination)) {
                 Pageable pageable = PageRequest.of(page, size);
                 log.debug("Getting order whith pagination ");
                 return clientOrderDao.findAll(pageable);
-            }else {
+            } else {
                 log.debug("Getting order whitout  pagination ");
                 return clientOrderDao.findAll();
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             log.error("Une erreur s'est produite lors de la récupération des commandes :: errror: {}", e.getMessage());
             throw new InternalServerException("Une erreur s'est produite lors de la récupération de la liste des commandes");
         }
@@ -115,10 +118,10 @@ public class OrderLogicImpl implements OrderLogic{
             throw new ResourceNotFoundException("Aucune commande trouvée");
         try {
             clientOrderById.setStatus(status);
-            ClientOrder result =clientOrderDao.save(clientOrderById);
+            ClientOrder result = clientOrderDao.save(clientOrderById);
             log.info("Canceled Order successfully {}", result);
             return result;
-        }catch (Exception e) {
+        } catch (Exception e) {
             log.error("Une erreur s'est produite lors de la récupération de l'annulation de la commande :: errror: {}", e.getMessage());
             throw new InternalServerException("Une erreur s'est produite lors de l'annulation de la commande");
         }
@@ -131,12 +134,12 @@ public class OrderLogicImpl implements OrderLogic{
         if (Objects.isNull(clientOrderById))
             throw new ResourceNotFoundException("Aucune commande trouvée");
 
-        if (!Objects.equals(clientOrderById.getStatus(), Statut.DELIVRED.getLibelle()) || !Objects.equals(clientOrderById.getStatus(), Statut.CANCELED.getLibelle())){
+        if (!Objects.equals(clientOrderById.getStatus(), Statut.DELIVRED.getLibelle()) || !Objects.equals(clientOrderById.getStatus(), Statut.CANCELED.getLibelle())) {
             clientOrderById.setStatus(Statut.CANCELED.getLibelle());
             try {
-                ClientOrder result =clientOrderDao.save(clientOrderById);
+                ClientOrder result = clientOrderDao.save(clientOrderById);
                 log.info("Canceled Order successfully {}", result);
-            }catch (Exception e) {
+            } catch (Exception e) {
                 log.error("Une erreur s'est produite lors de la récupération de l'annulation de la commande :: errror: {}", e.getMessage());
                 throw new InternalServerException("Une erreur s'est produite lors de l'annulation de la commande");
             }

@@ -1,6 +1,5 @@
 package com.kaji17.core.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -8,6 +7,9 @@ import java.io.Serial;
 import java.io.Serializable;
 import java.util.List;
 
+/**
+ * @author katina
+ */
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter

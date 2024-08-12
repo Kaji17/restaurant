@@ -6,7 +6,6 @@ import com.kaji17.core.dao.DisheCategoryDao;
 import com.kaji17.core.dao.DisheDao;
 import com.kaji17.core.dao.DishePictureDao;
 import com.kaji17.core.dto.DisheDto;
-import com.kaji17.core.entities.Administrator;
 import com.kaji17.core.entities.Dishe;
 import com.kaji17.core.entities.DisheCategory;
 import com.kaji17.core.entities.DishePicture;
@@ -29,6 +28,9 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
+/**
+ * @author katina
+ */
 @Service
 @Slf4j
 @RequiredArgsConstructor
@@ -69,8 +71,8 @@ public class DisheLogicImpl implements DisheLogic {
         if (Objects.isNull(disheById))
             throw new ResourceNotFoundException("Ce plat n'existe pas");
 
-        if (Objects.nonNull(disheById.getDishepicture())){
-            for (DishePicture picture : disheById.getDishepicture()){
+        if (Objects.nonNull(disheById.getDishepicture())) {
+            for (DishePicture picture : disheById.getDishepicture()) {
                 this.deleteDishPicture(picture.getDishepictureid());
             }
         }
@@ -84,16 +86,16 @@ public class DisheLogicImpl implements DisheLogic {
         }
     }
 
-    private void deleteDishPicture(Integer dishPictureId){
+    private void deleteDishPicture(Integer dishPictureId) {
 
-        DishePicture dishePictureById  = dishePictureDao.findByDishepictureid(dishPictureId);
+        DishePicture dishePictureById = dishePictureDao.findByDishepictureid(dishPictureId);
         if (Objects.isNull(dishePictureById))
             throw new ResourceNotFoundException("Aucune image trouvée");
         try {
             log.info("Deleting picture {}", dishePictureById.getUrl());
             fileTools.deleteFile(dishePictureById.getUrl().replace(Objects.requireNonNull(env.getProperty("image.host")), Objects.requireNonNull(env.getProperty("image.path"))));
             dishePictureDao.delete(dishePictureById);
-        }catch (Exception e){
+        } catch (Exception e) {
             log.error("Une erreur s'est produite lors de la suppression de l'image :: errror: {}", e.getMessage());
             throw new InternalServerException("Une erreur s'est produite lors de la suppression de l'image");
         }
