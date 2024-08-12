@@ -1,0 +1,20 @@
+name: Docker Image build-restaurentms-image-workflow CI
+
+on:
+  push:
+    branches: [ "build-restaurentms-image-workflow" ]
+  pull_request:
+    branches: [ "build-restaurentms-image-workflow" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build the Docker restaurentms image
+        run: |
+          docker image build \
+          -t kaji17/restaurentms:v1.0.0 --platform=linux/amd64 .

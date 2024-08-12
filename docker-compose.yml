@@ -1,0 +1,44 @@
+version: '3'
+services:
+  restaurentms:
+    image:  kaji17/restaurentms:latest
+    restart: unless-stopped
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./Restaurentms/log:/Restaurentms/log
+      - ./Restaurentms/images/:/Restaurentms/images/
+    environment:
+      - "SPRING_PROFILES_ACTIVES=dev"
+      - "RESTAURANT_DB_URL=jdbc:postgresql://restaurentBD:5432/restaurantProjectBD"
+      - "RESTAURANT_DB_USERNAME=@restaurantProjectUser"
+      - "RESTAURANT_DB_PASSWORD=rg02ZRHUFJJi1"
+      - "IMAGE_HOST=http://localhost:8080/"
+      - "IMAGE_PATH=/Restaurentms/images/"
+    networks:
+      - net-restaurentms
+  restaurentBD:
+    image: postgres:16-alpine
+    restart: always
+    ports:
+      - "5437:5432"
+    volumes:
+      - ./Restaurentms/database/var/lib/postgresql/data:/var/lib/postgresql/data
+    networks:
+      - net-restaurentms
+    environment:
+      POSTGRES_PASSWORD: "rg02ZRHUFJJi1"
+      POSTGRES_USER: "@restaurantProjectUser"
+      POSTGRES_DB: "restaurantProjectBD"
+  httpd:
+    image: httpd:2.4
+    restart: always
+    ports:
+      - "8080:80"
+    volumes:
+      - ./Restaurentms/images/:/usr/local/apache2/htdocs/
+    networks:
+      - net-restaurentms
+networks:
+  net-restaurentms:
+    driver: bridge

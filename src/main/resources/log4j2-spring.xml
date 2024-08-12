@@ -1,0 +1,12 @@
+<?xml  version='1.0'?>
+<configuration xmlns:xi="http://www.w3.org/2001/XInclude"  name="Restaurentms" monitorInterval="10">
+        <properties>
+                <Property name="logPath">/Restaurentms/log</Property>
+                <Property name="appName">Restaurentms</Property>
+                <Property name="ksePath">/Restaurentms/log</Property>
+        </properties>
+
+        <ThresholdFilter level="debug" />
+        <xi:include href="./log4j2-appenders.xml" />
+        <xi:include href="./log4j2-loggers.xml" />
+</configuration>
