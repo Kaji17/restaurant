@@ -3,7 +3,7 @@ import {
 } from '../../interfaces/side-nav.type';
 
 export const ROUTES: SideNavInterface[] = [{
-  path: '/dashboard/demo-three',
+  path: '/dashboard',
   title: 'Dashboard',
   iconType: 'nzIcon',
   iconTheme: 'outline',
@@ -11,12 +11,29 @@ export const ROUTES: SideNavInterface[] = [{
   submenu: []
 },
 {
-  path: '/menu/menu',
+  path: '/menu',
   title: 'Menu',
   iconType: 'nzIcon',
   iconTheme: 'outline',
   icon: 'layout',
-  submenu: []
+  submenu: [
+    {
+      path: '/menu/carte',
+      title: 'Cartes',
+      iconType: '',
+      icon: '',
+      iconTheme: '',
+      submenu: []
+    },
+    {
+      path: '/menu/plat',
+      title: 'Plats',
+      iconType: '',
+      icon: '',
+      iconTheme: '',
+      submenu: []
+    },
+  ]
 },
 {
   path: '',

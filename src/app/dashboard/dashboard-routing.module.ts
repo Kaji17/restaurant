@@ -4,8 +4,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { DemoThreeComponent } from './demo-three/demo-three.component';
 
 const routes: Routes = [
+
     {
-        path: 'demo-three',
+        path: '',
         component: DemoThreeComponent,
         data: {
             title: 'Dashboard',

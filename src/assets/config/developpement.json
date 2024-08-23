@@ -1,0 +1,12 @@
+{
+    "HOST_API-DEV": "https://restaurant-yvh6.onrender.com",
+    "HOST:API": "https://restaurant-yvh6.onrender.com",
+    "API_ENDPOINTS": {
+        "comment": "------------ OPERATIONS DISH ---------------",
+        "DISH_PUT": "/api/v1/restaurant/dishe/update-dishe/",
+        "DISH_ADD": "/api/v1/restaurant/dishe/add-dishe",
+        "DISH_GET": "/api/v1/restaurant/dishe/get-dishe",
+        "DISH_DELETE": "/api/v1/restaurant/dishe/delete-dishe/",
+        "CATEGORI_DISH_GET": "/api/v1/restaurant/categorie-dish/get-categorydish"
+    }
+}

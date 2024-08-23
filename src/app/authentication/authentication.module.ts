@@ -13,7 +13,6 @@ import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 
 import { Login1Component } from './login-1/login-1.component';
-import { SignUp1Component } from './sign-up-1/sign-up-1.component';
 import { ForgetPassComponent } from './forget-pass/forget-pass.component';
 
 const antdModule= [
@@ -35,7 +34,6 @@ const antdModule= [
     ],
     declarations: [
         Login1Component,
-        SignUp1Component,
         ForgetPassComponent
     ]
 })

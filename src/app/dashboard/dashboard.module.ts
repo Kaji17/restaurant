@@ -34,43 +34,6 @@ import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
 import { NgChartsModule } from 'ng2-charts';
 import { PERFECT_SCROLLBAR_CONFIG, PerfectScrollbarConfigInterface, PerfectScrollbarModule } from 'ngx-om-perfect-scrollbar';
 
-import { AppCalendarComponent } from '../container/dashboard/demoFive/calendar-mini';
-import { DanialFullComponent } from '../container/dashboard/demoFive/danial.component';
-import { EditModalComponent } from '../container/dashboard/demoFive/EditModalComponent';
-import { MemberProgress } from '../container/dashboard/demoFive/member-progress';
-import { MiniInboxComponent } from '../container/dashboard/demoFive/min-inbox';
-import { UpcomingEvent } from '../container/dashboard/demoFive/upcoming-event';
-import { UserOverviewComponent } from '../container/dashboard/demoFive/userOverview.component';
-import { DanialComponent } from '../container/dashboard/demoFour/danial.component';
-import { MarketingCampaignsComponent } from '../container/dashboard/demoFour/marketingCampaigns.component';
-import { NewsComponent } from '../container/dashboard/demoFour/news.component';
-import { PerformanceComponent } from '../container/dashboard/demoFour/performanceOverview.component';
-import { ProfileCardComponent } from '../container/dashboard/demoFour/profileCard.component';
-import { socialMediaTrafficComponent } from '../container/dashboard/demoFour/socialMediaTraffic.component';
-import { TaskListComponent } from '../container/dashboard/demoFour/tasklist.component';
-import { TeamListComponent } from '../container/dashboard/demoFour/teamMember.component';
-import { userChatComponent } from '../container/dashboard/demoFour/userChat.component';
-import { AppCalendarTwoComponent } from '../container/dashboard/demoNine/calendar-mini';
-import { EditModalComponent2 } from '../container/dashboard/demoNine/EditModal2.component';
-import { googleMapMiniComponent } from '../container/dashboard/demoNine/googleMap';
-import { JohnComponent as JohnComponent } from '../container/dashboard/demoNine/John.component';
-import { News2Component } from '../container/dashboard/demoNine/news2.component';
-import { Performance2Component } from '../container/dashboard/demoNine/performanceOverview2.component';
-import { socialMediaTrafficComponent2 } from '../container/dashboard/demoNine/socialMediaTraffic.Component';
-import { TaskList2Component } from '../container/dashboard/demoNine/tasklist2.component';
-import { TodoComponent2 } from '../container/dashboard/demoNine/todolist.component';
-import { BrowserStatesComponent } from '../container/dashboard/demoOne/browserStates.component';
-import { OverviewComponent } from '../container/dashboard/demoOne/overview.component';
-import { SaleGrowthComponent } from '../container/dashboard/demoOne/salesGrowth.component';
-import { SaleLocationComponent } from '../container/dashboard/demoOne/salesLocation.component';
-import { SaleReportComponent } from '../container/dashboard/demoOne/salesReport.component';
-import { TopSellingComponent } from '../container/dashboard/demoOne/topSelling.component';
-import { OverviewSevenComponent } from '../container/dashboard/demoSeven/overview.component';
-import { SourceRevenueTable } from '../container/dashboard/demoSeven/source-revenue';
-import { OverviewSixComponent } from '../container/dashboard/demoSix/overviewSix.component';
-import { SaleGrowthStatusComponent } from '../container/dashboard/demoSix/salesGrowthStatus.component';
-import { SaleOverviewComponent } from '../container/dashboard/demoSix/salesOverview';
-import { DanialFullComponent2 } from '../container/dashboard/demoTen/danial.component';
 import { ActiveUserComponent } from '../container/dashboard/demoThree/activeUser.component';
 import { MoneyEarningComponent } from '../container/dashboard/demoThree/moneyEarning.component';
 import { OverviewListVerticalComponent } from '../container/dashboard/demoThree/overviewListVertical.component';
@@ -78,16 +41,8 @@ import { ProfitGrowthComponent } from '../container/dashboard/demoThree/profitGr
 import { RecentDealsComponent } from '../container/dashboard/demoThree/recentDeals.component';
 import { SalesOverviewComponent } from '../container/dashboard/demoThree/salesOverview.component';
 import { TopProductComponent } from '../container/dashboard/demoThree/topProduct.component';
-import { BestSellerComponent } from '../container/dashboard/demoTwo/bestSeller.component';
-import { NewProductComponent } from '../container/dashboard/demoTwo/newProduct.component';
-import { OverviewListComponent } from '../container/dashboard/demoTwo/overviewList.component';
-import { SaleRevenueComponent } from '../container/dashboard/demoTwo/salesRevenue.component';
-import { SourceRevenueGenerated } from '../container/dashboard/demoTwo/sourceRevenueGenerated.component';
 import { ThemeConstantService } from '../shared/services/theme-constant.service';
 import { SharedModule } from '../shared/shared.module';
-import { BlogCardsComponent } from './../container/dashboard/demoFive/blog-card';
-import { KnowledgeBaseComponent } from './../container/dashboard/demoFive/knowledge-base.component';
-import { TimeLineComponent } from './../container/dashboard/demoFive/timeline';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DemoThreeComponent } from './demo-three/demo-three.component';
 
@@ -141,29 +96,9 @@ const antdModule = [
         ...antdModule
     ],
     exports: [
-      SaleLocationComponent,
-      BestSellerComponent,
-      TopSellingComponent,
-      BrowserStatesComponent,
-      SaleReportComponent,
-      SaleGrowthComponent,
-      SaleRevenueComponent,
-      SourceRevenueGenerated,
+
     ],
     declarations: [
-
-        OverviewComponent,
-        SaleReportComponent,
-        SaleGrowthComponent,
-        SaleLocationComponent,
-        TopSellingComponent,
-        BrowserStatesComponent,
-
-        OverviewListComponent,
-        SaleRevenueComponent,
-        SourceRevenueGenerated,
-        NewProductComponent,
-        BestSellerComponent,
         DemoThreeComponent,
         MoneyEarningComponent,
         ProfitGrowthComponent,
@@ -172,41 +107,6 @@ const antdModule = [
         TopProductComponent,
         RecentDealsComponent,
         ActiveUserComponent,
-
-        DanialComponent,
-        PerformanceComponent,
-        NewsComponent,
-        TaskListComponent,
-        MarketingCampaignsComponent,
-        ProfileCardComponent,
-        TeamListComponent,
-        socialMediaTrafficComponent,
-        userChatComponent,
-        DanialFullComponent,
-        DanialFullComponent2,
-        UserOverviewComponent,
-        AppCalendarComponent,
-        MemberProgress,
-        UpcomingEvent,
-        EditModalComponent,
-        KnowledgeBaseComponent,
-        TimeLineComponent,
-        MiniInboxComponent,
-        BlogCardsComponent,
-        OverviewSixComponent,
-        SaleGrowthStatusComponent,
-        SaleOverviewComponent,
-        OverviewSevenComponent,
-        SourceRevenueTable,
-        JohnComponent,
-        Performance2Component,
-        News2Component,
-        TaskList2Component,
-        EditModalComponent2,
-        TodoComponent2,
-        socialMediaTrafficComponent2,
-        googleMapMiniComponent,
-        AppCalendarTwoComponent
     ],
     providers: [
         ThemeConstantService,
