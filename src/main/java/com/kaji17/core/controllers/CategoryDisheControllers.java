@@ -28,9 +28,9 @@ public class CategoryDisheControllers {
      */
     @Operation(summary = "Ajouter des catégorie de plats")
     @PostMapping(value = "/add-categorydish")
-    public ResponseEntity<DisheCategory> addDishCategory(@RequestParam String categoriedishelibelle){
+    public ResponseEntity<DisheCategory> addDishCategory(@RequestParam String categoriedishelibelle, @RequestParam String categoryimage){
         log.warn("[*] Starting categorie dishe creating :: CategoriedisheLibelle = {}", categoriedishelibelle);
-        return ResponseEntity.ok().body(categoryDisheLogic.addCategoryDishe(categoriedishelibelle));
+        return ResponseEntity.ok().body(categoryDisheLogic.addCategoryDishe(categoriedishelibelle, categoryimage));
     }
 
     /**

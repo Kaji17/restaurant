@@ -17,7 +17,7 @@ public interface CategoryDisheLogic {
      * @throws ResourceAlreadyExistsException if a category with the same name already exists
      * @throws InternalServerException if an error occurs during the creation process
      */
-    DisheCategory addCategoryDishe(String categoriedishelibelle);
+    DisheCategory addCategoryDishe(String categoriedishelibelle, String categoryimage);
 
     /**
      * This method retrieves the list of dish categories from the database.

@@ -23,7 +23,7 @@ public class CategoryDisheLogicImpl implements CategoryDisheLogic {
     private final DisheCategoryDao disheCategoryDao;
 
     @Override
-    public DisheCategory addCategoryDishe(String categoriedishelibelle) {
+    public DisheCategory addCategoryDishe(String categoriedishelibelle, String categoryimage) {
 
         if (Objects.nonNull(disheCategoryDao.findByName(categoriedishelibelle)))
             throw new ResourceAlreadyExistsException("Cette categorie de plat exite déjà.");
@@ -31,6 +31,7 @@ public class CategoryDisheLogicImpl implements CategoryDisheLogic {
         try {
             DisheCategory disheCategory = new DisheCategory();
             disheCategory.setName(categoriedishelibelle);
+            disheCategory.setImage(categoryimage);
             DisheCategory result = disheCategoryDao.save(disheCategory);
             log.info("Dish categorie save sucessfull :{}", result);
             return result;

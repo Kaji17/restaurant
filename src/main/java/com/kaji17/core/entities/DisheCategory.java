@@ -30,6 +30,9 @@ public class DisheCategory implements Serializable {
     @Column(name = "name", nullable = false)
     private String name;
 
+    @Column(name = "image")
+    private String image;
+
     @OneToMany(mappedBy = "dishecategory",fetch = FetchType.EAGER)
     @JsonIgnore
     @ToString.Exclude
